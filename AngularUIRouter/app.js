@@ -1,9 +1,10 @@
+//adding ui.router as one of my dependency.
 var myApp=angular.module("testApp",["ui.router"]);
 
-myApp.config(function($stateProvider,$urlRouterProvider){
+myApp.config(function($stateProvider){
      
       //setting up the states
-    
+    //injected $stateProvider via dependency injection
     $stateProvider
        
      .state("state1",{

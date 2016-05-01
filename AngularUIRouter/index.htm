@@ -10,9 +10,12 @@
     
     <body ng-app="testApp" ng-controller="appCtrl">
     
+<!-- ui-sref directive manages state transitions and also auto -generates the href attribute
+   of the <a> element it is attached to of the corresponding state has a url-->
     
         <a ui-sref="state1">State1</a>
         <a ui-sref="state2">State2</a>
+<!--  ui-view directive is what renders your template to this page  -->
           <div ui-view></div>
         <script type="text/javascript" src="https://code.angularjs.org/1.5.0-rc.2/angular.js"></script>
     
