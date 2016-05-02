@@ -1,0 +1,46 @@
+UI-ROUTER:using controller as
+
+html:
+
+<a ui-sref="state1">State1</a>
+<a ui-sref="state2">State2</a>
+<ui-view></ui-view>
+
+
+
+
+app.js
+
+var myApp=angular.module("testApp",["ui.router"]);
+
+myApp.config(function($stateProvider){
+       
+
+$stateProvider.
+
+     state("state1",{
+            url:"/state1",
+            template:"<h1>{{stateOne.message}}</h1>",
+            controller:"stateOneCtrl as stateOne"
+         })
+     .state("state2",{
+            url:"/state2",
+            template:"<h1>{{stateTwo.message}}</h1>",
+            controller:"stateTwoCtrl as stateTwo"  //defining an alias for the controller.This is done so as two rmove any confusion
+                               //regarding any common named variables in other controllers.This prevents us from using scope
+                              //and variables can be accessed inside the view using this alias.
+        }) 
+});
+
+
+
+myApp.controller("stateOneCtrl",function(){
+        var self=this;
+       self.message="hello from akash";
+});
+
+//using this alias we do not need to use $scope
+myApp.controller("stateTwoCtrl",function(){
+          var self=this;
+           self.message="hello from badhrell";
+});
